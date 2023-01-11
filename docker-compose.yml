@@ -1,22 +1,19 @@
-version: "3.9"
+version: "3.3"
 services:
   client:
     container_name: my_client
     build: ./client/
     tty: true
     stdin_open: true
-    depends_on:
-      redis_server:
-        condition: service_healthy
+
+
 
   worker:
     container_name: my_worker
     build: ./worker/
     tty: true
     stdin_open: true
-    depends_on:
-      redis_server:
-        condition: service_healthy
+
 
   redis_server:
     container_name: my_redis
